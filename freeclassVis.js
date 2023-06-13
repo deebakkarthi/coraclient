@@ -16,8 +16,18 @@
   } else {
     createHeading(date, slot);
     buildTable(responseText);
+    buildResults(slot, responseText, date);
   }
 })();
+
+function buildResults(slot, classNameArr, date) {
+  let el = document.getElementById("freeClassResult");
+  for (let i = 0; i < classNameArr.length; i++) {
+    let child = createCard(classNameArr[i], date, slot);
+    el.appendChild(child);
+  }
+}
+
 function noFreeClassHeading(date, slot) {
   const classNameHeader = document.getElementById("freeClassHeader");
   classNameHeader.classList.add("alert");
@@ -29,24 +39,39 @@ function createHeading(date, slot) {
   const classNameHeader = document.getElementById("freeClassHeader");
   classNameHeader.textContent = `Free classes  on ${date} slot ${slot}`
 }
-
-function expandDay(shortDay) {
-  const dayMap = {
-    MON: "Monday",
-    TUE: "Tuesday",
-    WED: "Wednesday",
-    THU: "Thursday",
-    FRI: "Friday"
-  }
-  return dayMap[shortDay];
-}
-
-function buildTable(freeClassArr) {
-  const freeSlotTable = document.getElementById("freeClassTable");
-  for (let i = 0; i < freeClassArr.length; i++) {
-    const tr = freeSlotTable.insertRow();
+async function buildTable(freeClassArr) {
+  response = await fetch("db/getAllClass");
+  let classArr = await response.json()
+  let cSet = new Set(freeClassArr)
+  const freeClassTable = document.getElementById("freeClassTable");
+  const tr = freeClassTable.insertRow();
+  for (let i = 0; i < classArr.length; i++) {
     const td = tr.insertCell();
-    td.appendChild(document.createTextNode(`${freeClassArr[i]}`));
-    td.classList.add("table-info");
+    td.appendChild(document.createTextNode(`${classArr[i]}`));
+    if (cSet.has(classArr[i])) {
+      td.classList.add("table-success");
+    } else {
+      td.classList.add("table-danger");
+    }
   }
+}
+function createCard(className, date, slot) {
+  let template = document.createElement("template");
+  template.innerHTML = `
+<div class="card mb-2">
+    <div class="card-header">
+    ${date.split("T")[0]}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">${className}
+    <span class="card-subtitle mb-2 badge rounded-pill text-bg-primary">Slot ${slot}</span></h5>
+    <form action="/booking" method="GET">
+    <input type="hidden" name="date" value="${date.split("T")[0]}">
+    <input type="hidden" name="class" value="${className}">
+    <input type="hidden" name="slot" value="${slot}">
+    <button class="btn btn-outline-primary" type="submit">Book Now</a>
+    </form>
+  </div>
+</div>`.trim();
+  return template.content.firstChild;
 }
