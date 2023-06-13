@@ -5,30 +5,19 @@
   const targetURL = baseURL + path + queryString;
   const urlParams = new URLSearchParams(window.location.search);
   const className = urlParams.get("class");
-  const day = urlParams.get("day");
+  const date = urlParams.get("date");
   console.log(targetURL);
 
   let response = await fetch(targetURL);
   let responseText = await response.json();
-  createHeading(className, day);
+  createHeading(className, date);
   console.log(responseText);
   buildTable(responseText);
 })();
 
-function createHeading(className, day) {
+function createHeading(className, date) {
   const classNameHeader = document.getElementById("timetableHeader");
-  classNameHeader.textContent = `Timetable of ${className} on ${expandDay(day)}`;
-}
-
-function expandDay(shortDay) {
-  const dayMap = {
-    MON: "Monday",
-    TUE: "Tuesday",
-    WED: "Wednesday",
-    THU: "Thursday",
-    FRI: "Friday"
-  }
-  return dayMap[shortDay];
+  classNameHeader.textContent = `Timetable of ${className} on ${date}`;
 }
 
 function buildTable(subjectArr) {

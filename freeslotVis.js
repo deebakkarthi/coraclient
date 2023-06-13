@@ -19,17 +19,6 @@ function createHeading(className, date) {
   classNameHeader.textContent = `Free slots of ${className} on ${date}`
 }
 
-function expandDay(shortDay) {
-  const dayMap = {
-    MON: "Monday",
-    TUE: "Tuesday",
-    WED: "Wednesday",
-    THU: "Thursday",
-    FRI: "Friday"
-  }
-  return dayMap[shortDay];
-}
-
 function buildTable(freeSlotsArr) {
   let freeSlots = new Set(freeSlotsArr);
   const freeSlotTable = document.getElementById("freeSlotTable");
