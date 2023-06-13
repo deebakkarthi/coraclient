@@ -44,7 +44,7 @@ function getDate() {
   const date = getDate();
   let dateEl = document.getElementById("date");
   dateEl.min = date;
-
+  dateEl.value = date;
   return;
 })();
 

@@ -26,8 +26,9 @@ function createCard(className, date, faculty, slot, subject) {
 <div class="card mb-2">
   <div class="card-body">
     <h5 class="card-title">Slot ${slot} on ${date.split("T")[0]}</h5>
-    <h6 class="card-subtitle mb-2 badge rounded-pill text-bg-primary">${className}</h6>
-    <p class="card-text">${subject}</p>
+    <hr/>
+    <h6 class="card-subtitle mb-2 badge rounded-pill text-bg-primary">${subject}</h6>
+    <p class="card-text">${className}</p>
     <form action="/db/cancelBooking" method="GET">
     <input type="hidden" name="date" value="${date.split("T")[0]}">
     <input type="hidden" name="class" value="${className}">
