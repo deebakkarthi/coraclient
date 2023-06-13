@@ -21,14 +21,14 @@
 )();
 
 function failure() {
-  const el = document.getElementById("bookingHeader");
+  const el = document.getElementById("bookingResult");
   el.classList.add("alert")
   el.classList.add("alert-danger");
   el.textContent = "That slot is already booked. Choose another"
 }
 
 function success(params) {
-  const el = document.getElementById("bookingHeader");
+  const el = document.getElementById("bookingResult");
   el.classList.add("alert")
   el.classList.add("alert-success");
   el.textContent = `Successfully booked slot ${params.slot} on ${params.date} in class ${params.class}

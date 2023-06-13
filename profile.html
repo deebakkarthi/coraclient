@@ -5,32 +5,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Free Class Finder</title>
+  <title>CORA</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
-  <script src="freeclassVis.js" defer></script>
+  <script src="profile.js" defer></script>
   <script src="cora.js"></script>
 </head>
 
-<body>
+<body class="bg-body-tertiary">
   <header id="header"></header>
   <script>
     renderHeader();
-    let header = document.getElementById("classNav");
+    let header = document.getElementById("profileNav");
     header.classList.add("active");
   </script>
-
-
-  <div class="container w-75">
-    <div class="row">
-      <div id="freeClassHeader"></div>
-    </div>
-    <div class="row">
-      <table class="table text-center" id="freeClassTable">
-      </table>
+  <div class="container">
+    <div id="bookingHeader"></div>
+    <div id="bookingResult">
     </div>
   </div>
 </body>

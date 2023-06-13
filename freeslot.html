@@ -12,27 +12,18 @@
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
   <script src="freeslot.js" defer></script>
+  <script src="cora.js"></script>
 </head>
 
 <body class="bg-body-tertiary">
 
-  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-      <svg class="bi me-2" width="40" height="32">
-        <use xlink:href="#bootstrap"></use>
-      </svg>
-      <span class="fs-4">CORA</span>
-    </a>
 
-    <ul class="nav nav-pills">
-      <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-      <li class="nav-item"><a href="freeslot.html" class="nav-link active" aria-current="page">Free Slot</a></li>
-      <li class="nav-item"><a href="freeclass.html" class="nav-link">Free Class</a></li>
-      <li class="nav-item"><a href="daytimetable.html" class="nav-link">Class Timetable</a></li>
-      <li class="nav-item"><a href="booking.html" class="nav-link">Booking</a></li>
-      <li class="nav-item"><a href="login.html" class="nav-link">Login</a></li>
-    </ul>
-  </header>
+  <header id="header"></header>
+  <script>
+    renderHeader();
+    let header = document.getElementById("slotNav");
+    header.classList.add("active");
+  </script>
 
 
   <div class="container w-75">
