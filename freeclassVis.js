@@ -4,7 +4,7 @@
   const queryString = window.location.search;
   const targetURL = baseURL + path + queryString;
   const urlParams = new URLSearchParams(window.location.search);
-  const day = urlParams.get('day');
+  const date = urlParams.get("date");
   const slot = urlParams.get("slot");
   console.log(targetURL);
 
@@ -12,22 +12,22 @@
   let responseText = await response.json();
   console.log(responseText);
   if (responseText === null) {
-    noFreeClassHeading(day, slot);
+    noFreeClassHeading(date, slot);
   } else {
-    createHeading(day, slot);
+    createHeading(date, slot);
     buildTable(responseText);
   }
 })();
-function noFreeClassHeading(day, slot) {
+function noFreeClassHeading(date, slot) {
   const classNameHeader = document.getElementById("freeClassHeader");
   classNameHeader.classList.add("alert");
   classNameHeader.classList.add("alert-danger");
-  classNameHeader.textContent = `No free classes  on ${expandDay(day)} slot ${slot}`
+  classNameHeader.textContent = `No free classes  on ${date} slot ${slot}`
 }
 
-function createHeading(day, slot) {
+function createHeading(date, slot) {
   const classNameHeader = document.getElementById("freeClassHeader");
-  classNameHeader.textContent = `Free classes  on ${expandDay(day)} slot ${slot}`
+  classNameHeader.textContent = `Free classes  on ${date} slot ${slot}`
 }
 
 function expandDay(shortDay) {

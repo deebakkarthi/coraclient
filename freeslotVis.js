@@ -4,19 +4,19 @@
   const queryString = window.location.search;
   const targetURL = baseURL + path + queryString;
   const urlParams = new URLSearchParams(window.location.search);
-  const className = urlParams.get('class');
-  const day = urlParams.get("day");
+  const className = urlParams.get("class");
+  const date = urlParams.get("date");
   console.log(targetURL);
 
   let response = await fetch(targetURL);
   let responseText = await response.json();
-  createHeading(className, day);
+  createHeading(className, date);
   buildTable(responseText);
 })();
 
-function createHeading(className, day) {
+function createHeading(className, date) {
   const classNameHeader = document.getElementById("className");
-  classNameHeader.textContent = `Free slots of ${className} on ${expandDay(day)}`
+  classNameHeader.textContent = `Free slots of ${className} on ${date}`
 }
 
 function expandDay(shortDay) {
