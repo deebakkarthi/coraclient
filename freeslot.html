@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Freeslot</title>
+    <script src="daytimetable.js" defer></script>
+  </head>
+
+  <body>
+    <form action="db/freeslot" method="GET">
+      <input type="text" name="class" id="class" placeholder="Class">
+      <select name="day" id="day">
+        <option value="MON">Monday</option>
+        <option value="TUE">Tuesday</option>
+        <option value="WED">Wednesday</option>
+        <option value="THU">Thursday</option>
+        <option value="FRI">Friday</option>
+      </select>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+
+</html>
+
