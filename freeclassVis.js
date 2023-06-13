@@ -10,10 +10,20 @@
 
   let response = await fetch(targetURL);
   let responseText = await response.json();
-  createHeading(day, slot);
   console.log(responseText);
-  buildTable(responseText);
+  if (responseText === null) {
+    noFreeClassHeading(day, slot);
+  } else {
+    createHeading(day, slot);
+    buildTable(responseText);
+  }
 })();
+function noFreeClassHeading(day, slot) {
+  const classNameHeader = document.getElementById("freeClassHeader");
+  classNameHeader.classList.add("alert");
+  classNameHeader.classList.add("alert-danger");
+  classNameHeader.textContent = `No free classes  on ${expandDay(day)} slot ${slot}`
+}
 
 function createHeading(day, slot) {
   const classNameHeader = document.getElementById("freeClassHeader");
