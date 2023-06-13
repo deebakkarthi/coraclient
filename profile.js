@@ -13,14 +13,14 @@
     bookingHeader.innerHTML = "<h1>Your Bookings</h1>"
     for (let i = 0; i < responseText.length; i++) {
       let tmp = responseText[i];
-      let child = createCard(tmp.class, tmp.date, tmp.faculty, tmp.slot, tmp.subject)
+      let child = createCard(tmp.class, tmp.date, tmp.slot, tmp.subject)
       el.appendChild(child);
     }
   }
 }
 )();
 
-function createCard(className, date, faculty, slot, subject) {
+function createCard(className, date, slot, subject) {
   let template = document.createElement("template");
   template.innerHTML = `
 <div class="card mb-2">

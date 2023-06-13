@@ -34,16 +34,17 @@
       </div>
       <div class="input-group mb-3">
         <label class="input-group-text" for="date">Date</label>
-        <input required type="date" name="date" id="date">
+        <input required required type="date" name="date" id="date">
       </div>
       <div class="input-group mb-3">
         <label class="input-group-text" for="slot">Slot</label>
-        <select class="form-select" id="slot" name="slot">
+        <select required class="form-select" id="slot" name="slot">
         </select>
       </div>
       <div class="input-group mb-3">
         <label class="input-group-text" for="subject">Subject</label>
-        <select class="form-select" id="subject" name="subject">
+        <select required class="form-select" id="subject" name="subject">
+          <option value="" disabled selected>Please pick a subject</option>
         </select>
       </div>
       <div class="input-group mb-3">

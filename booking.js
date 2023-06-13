@@ -6,6 +6,16 @@ function getDate() {
   return date
 }
 
+function isEmptyObject(obj) {
+  return (Object.keys(obj).length === 0 && obj.constructor === Object)
+}
+
+function hasURLParams() {
+  const URLParams = Object.fromEntries(new URLSearchParams(window.location.search));
+  return !(isEmptyObject(URLParams))
+}
+
+
 (async () => {
   /* Check if a user is logged in
     * If not redirect them to login
@@ -44,7 +54,15 @@ function getDate() {
   const date = getDate();
   let dateEl = document.getElementById("date");
   dateEl.min = date;
-  dateEl.value = date;
+
+  if (hasURLParams()) {
+    const URLParams = Object.fromEntries(new URLSearchParams(window.location.search));
+    dateEl.value = URLParams.date;
+    classEl.value = URLParams.class;
+    slotEl.value = URLParams.slot;
+  } else {
+    dateEl.value = date;
+  }
   return;
 })();
 
