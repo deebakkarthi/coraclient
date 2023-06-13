@@ -1,4 +1,8 @@
 (async () => {
+  if (!sessionStorage.getItem("mail")) {
+    window.location.replace("login");
+  }
+
   let response = await fetch("db/getAllSlot");
   let slot = await response.json()
   let slotEl = document.getElementById("slot");

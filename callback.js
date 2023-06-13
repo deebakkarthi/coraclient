@@ -18,4 +18,5 @@
     loginStatusDiv.textContent = `You are logged in as ${responseJSON["name"]}
   [${responseJSON["mail"]}] from ${responseJSON["organization"]}`;
   }
+  window.location.replace("index.html");
 })();

@@ -1,4 +1,7 @@
 (async () => {
+  if (!sessionStorage.getItem("mail")) {
+    window.location.replace("login");
+  }
   response = await fetch("db/getAllClass");
   let classArr = await response.json()
   let classEl = document.getElementById("class");
