@@ -5,13 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Booking</title>
+  <title>Multi Booking</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
-  <script src="booking.js" defer></script>
+  <script src="multiBooking.js" defer></script>
   <script src="cora.js"></script>
 </head>
 
@@ -21,24 +21,27 @@
     renderHeader();
   </script>
 
-
   <div class="container w-75">
-    <form action="bookingVis.html" method="GET">
+    <form action="multiBookingVis.html" method="GET">
       <div class="input-group mb-3">
         <label class="input-group-text" for="class">Class</label>
-        <select class="form-select" id="class" name="class">
-        </select>
-
+        <input type="text" class="form-control" id="class" name="class" disabled>
       </div>
+
       <div class="input-group mb-3">
         <label class="input-group-text" for="date">Date</label>
-        <input required required type="date" name="date" id="date">
+        <input required required type="date" name="date" id="date" disabled>
       </div>
       <div class="input-group mb-3">
-        <label class="input-group-text" for="slot">Slot</label>
-        <select required class="form-select" id="slot" name="slot">
-        </select>
+        <label class="input-group-text" for="startSlot">Start Slot</label>
+        <input type="text" class="form-control" id="startSlot" name="startSlot" disabled>
       </div>
+
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="endSlot">End Slot</label>
+        <input type="text" class="form-control" id="endSlot" name="endSlot" disabled>
+      </div>
+
       <div class="input-group mb-3">
         <label class="input-group-text" for="subject">Subject</label>
         <select required class="form-select" id="subject" name="subject">

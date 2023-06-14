@@ -14,7 +14,6 @@ function renderHeader() {
       <li class="nav-item"><a id="multiSlotNav" href="multiFreeSlot.html" class="nav-link">Multi Free Slot</a></li>
       <li class="nav-item"><a id="classNav" href="freeclass.html" class="nav-link">Free Class</a></li>
       <li class="nav-item"><a id="timetableNav" href="daytimetable.html" class="nav-link">Class Timetable</a></li>
-      <li class="nav-item"><a id="bookingNav" href="booking.html" class="nav-link">Booking</a></li>
       </ul>
     </div>
   </div>
